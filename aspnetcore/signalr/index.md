@@ -18,5 +18,6 @@ uid: signalr/index
 * [Hubs](xref:signalr/hubs)
 * [JavaScript client](xref:signalr/javascript-client)
 * [.NET client](xref:signalr/dotnet-client)
+* [Users and Groups](xref:signalr/groups)
 * [Publish to Azure](xref:signalr/publish-to-azure-web-app)
 * [Supported platforms](xref:signalr/supported-platforms)
