@@ -47,62 +47,80 @@ In this section, you'll complete the following tasks:
 1. Click **Deployment options**. A new panel appears. Click **Disconnect** to remove the local Git source control configuration that was added in the previous chapter. Confirm the removal operation by clicking the **Yes** button.
 1. Navigate to the *mywebapp<unique_number>* App Service. As a reminder, the portal's search box can be used to quickly locate the App Service.
 1. Click **Deployment options**. A new panel appears. Click **Disconnect** to remove the local Git source control configuration that was added in the previous chapter. Confirm the removal operation by clicking the **Yes** button.
-1. Click **Continuous Delivery (Preview)**:
+1. Click **Deployment Center (Preview)**:
 
-    ![Continuous Delivery (Preview) button](media/04/cd-preview.png)
+    ![Deployment Center (Preview) button](media/04/dc-preview.png)
 
-1. Click the **Configure** button. A **Configure Continuous Delivery** panel appears:
+1. A configuration page appears. Navigate to the following sections to complete configuration.
 
-    ![Configure Continuous Delivery panel](media/04/configure-cd.png)
+### Source control
 
-1. Navigate to the sections listed below to complete the configuration. No modifications are needed to the **Setup load test** section.
+1. Click the **Github** tile to configure a build and a release definition for a GitHub repository.
 
-### Choose repository
+    ![source control step selection](media/04/source-control-selection.png)
 
-Click the **Source code: Choose repository** option, and follow these steps:
+1. Confirm that the GitHub account listed in the **Github** tile is the correct account to use. Click the **Change Account** button if a different GitHub account should be used.
 
-1. Select *GitHub* from the **Code repository** drop-down.
-1. Select *\<GitHub_username\>/simple-feed-reader* from the **Repository** drop-down.
+    ![source control GitHub account](media/04/source-control-github-account.png)
+
+1. Click the **Continue** button.
+
+### Build provider
+
+1. Click the **VSTS Continuous Delivery** tile.
+
+    ![build provider step selection](media/04/build-provider-selection.png)
+
+1. Click the **Continue** button.
+
+### Configure
+
+1. Select the GitHub account or organization from the **Organization** drop-down.
+1. Select *simple-feed-reader* from the **Repository** drop-down.
 1. Select *master* from the **Branch** drop-down.
-1. Click the **OK** button to save your selections:
-
-    ![select code source](media/04/configure-cd-source.png)
-
-### Configure Continuous Delivery
-
-Click the **Build: Configure Continuous Delivery** option, and follow these steps:
-
-1. Select *ASP.NET Core* from the **Web Application framework** drop-down. This selection is important. It determines the build definition template to be used.
-1. Click the *Create new* option of the **Visual Studio Team Service account** toggle button.
-1. Enter a unique name in the **Account name** textbox. A green checkmark indicates the name isn't already being used.
+1. Click the **New** option for the **Visual Studio Team Service Account** toggle button. Enter a unique name in the **Enter Account Name** textbox. A red error message appears if the name is already being used.
 1. Select the region closest to you from the **Location** drop-down.
-1. Click the **OK** button to save your selections:
+1. Select *ASP.NET Core* from the **Web Application Framework** drop-down. This selection is important. It determines the build definition template to be used.
 
-    ![select build options](media/04/configure-cd-build.png)
+    ![configure step selections](media/04/configure-selections.png)
 
-### Configure deployment
+1. Click the **Continue** button.
 
-Click the **Deploy: Configure deployment** option, and follow these steps:
+### Test
 
-1. Click the *YES* option of the **Deploy to staging** toggle button. Without this change, the default behavior is to deploy to production.
-1. In the **Deployment slot** section, select the *Use existing* radio button. Select *staging* from the drop-down.
-1. Click the **OK** button to save your selections.
+1. Keep the default selection of **No** for the **Enable Load Test** toggle button.
 
-    ![Configure deployment panel](media/04/configure-deployment-panel.png)
+    ![test step selections](media/04/test-selection.png)
 
-1. Click the **OK** button on the **Configure Continuous Delivery** panel. Wait several minutes for completion.
+1. Click the **Continue** button.
 
-    ![DevOps pipeline construction in progress](media/04/configure-cd-waiting.png)
+### Deploy to staging
 
-    The following things are occurring during this waiting period:
+1. Click the **Yes** option for the **Enable Deployment Slot** toggle button.
+1. Click the **Existing** option for the **Deployment Slot** toggle button.
+1. Select *staging* from the **Deployment Slot** drop-down.
 
-    * A new VSTS account is created and is accessible at `https://<account_name>.visualstudio.com`. A confirmation email is sent with the details.
-    * A build definition and a release definition are created within a new team project named *MyFirstProject*.
-    * A build of the app is triggered. When the build succeeds, a deployment to the production environment is triggered.
+    ![deploy to staging step selections](media/04/deploy-to-staging-selections.png)
 
-1. Click the **Build triggered** link to monitor the build's progress.
+1. Click the **Continue** button.
 
-    ![Build triggered link](media/04/build-triggered-link.png)
+### Summary
+
+1. A summary of your selections is displayed. Review those selections for accuracy. Click the **Back** button if any corrections are needed.
+1. Click the **Finish** button.
+
+Wait a few minutes for completion. A new VSTS account is created and is accessible at `https://<account_name>.visualstudio.com`. A confirmation email is sent with the details. Follow these steps:
+
+1. Open your confirmation email, and click the **Start your project** button to launch VSTS in your browser:
+
+    ![confirmation email button](media/04/start-your-project-button.png)
+
+1. A new team project, named *mywebapp\<unique_number\>*, is listed. Click the team project link.
+
+    ![team project link](media/04/team-project-link.png)
+
+1. Click the **Build and Release** tab at the top of the page.
+1. 
 
 ## Commit changes to GitHub and automatically deploy to Azure
 
